@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+
+body {
+    background-color: #ffffff;
+    font-family: "Source Sans Pro";
+    font-weight: normal;
+    font-size: 20pt;
+    color: #202020;
+}
+
+header {
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header p {
+    font-family: "Source Code Pro";
+    margin: 0;
+}
+
+h1 {
+    font-size: 56pt;
+}
+
+h2 {
+    font-size: 20pt;
+}
+
+a {
+    color: #268bd2;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: #68b0e3;
+}
+
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
+p {
+    text-align: center;
+}
+
+#scoreblock {
+    font-size: 1.3em;
+}
+
+#score {
+    font-family: "Source Code Pro";
+    font-size: 2em;
+}
