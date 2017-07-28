@@ -4,7 +4,6 @@
 // July 2017
 //
 
-
 void main() {
   // TODO: define `Screen` as parent class of those in below block
   // TODO: define `IntroScreen`
