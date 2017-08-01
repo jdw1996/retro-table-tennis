@@ -5,7 +5,6 @@
 //
 
 void main() {
-  // TODO: define `Screen` as parent class of those in below block
   // TODO: define `IntroScreen`
   IntroScreen introScreen = new IntroScreen();
   // TODO: define `SettingsScreen`
@@ -34,13 +33,10 @@ void main() {
   introScreen.execute();
   while (true) {
     if (changeSettings) {
-      // Pass `currentSettings` to display as defaults.
-      // Update `currentSettings` with new choices.
       currentSettings = settingsScreen.execute(currentSettings);
-      // TODO: initialize `player1` and `player2` based on settings
       changeSettings = false;
     }
-    latestScore = gameScreen.execute(playToScore);
+    latestScore = gameScreen.execute(currentSettings);
     // TODO: determine winner and execute `winScreen`, `loseScreen`, or `twoPlayerEndScreen`
     // NB: any of these `EndScreen`s should return a value on execution to indicate if settings must be changed
   }
