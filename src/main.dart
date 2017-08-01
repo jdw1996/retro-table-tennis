@@ -19,11 +19,6 @@ void main() {
   // TODO: define `TwoPlayerEndScreen`
   TwoPlayerEndScreen twoPlayerEndScreen = new TwoPlayerEndScreen();
 
-  // TODO: define `Player`
-  // NB: should be the parent class to `Human Player` and `ComputerPlayer`
-  Player player1;
-  Player player2;
-
   // TODO: define `Score`
   Score latestScore = new Score(0, 0);
   // TODO: define `Settings`
