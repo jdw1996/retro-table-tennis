@@ -5,6 +5,7 @@
 //
 
 import 'score.dart';
+import 'settings.dart';
 
 void main() {
   // TODO: define `IntroScreen`
@@ -22,7 +23,6 @@ void main() {
   TwoPlayerEndScreen twoPlayerEndScreen = new TwoPlayerEndScreen();
 
   Score latestScore = new Score(0, 0);
-  // TODO: define `Settings`
   Settings currentSettings = new Settings();
   bool changeSettings = true;
 
