@@ -4,6 +4,8 @@
 // July 2017
 //
 
+import 'score.dart';
+
 void main() {
   // TODO: define `IntroScreen`
   IntroScreen introScreen = new IntroScreen();
@@ -19,7 +21,6 @@ void main() {
   // TODO: define `TwoPlayerEndScreen`
   TwoPlayerEndScreen twoPlayerEndScreen = new TwoPlayerEndScreen();
 
-  // TODO: define `Score`
   Score latestScore = new Score(0, 0);
   // TODO: define `Settings`
   Settings currentSettings = new Settings();
