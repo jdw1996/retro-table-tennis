@@ -8,8 +8,7 @@ class Score {
   int score1;
   int score2;
 
-  Score(scoreArg1, scoreArg2) {
-    score1 = scoreArg1;
-    score2 = scoreArg2;
-  }
+  Score(score1, score2)
+      : score1 = score1,
+        score2 = score2;
 }
