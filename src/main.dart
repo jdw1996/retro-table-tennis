@@ -31,16 +31,16 @@ void main() {
   Settings currentSettings = new Settings();
   bool changeSettings = true;
 
-  IntroScreen.execute();
+  introScreen.execute();
   while (true) {
     if (changeSettings) {
       // Pass `currentSettings` to display as defaults.
       // Update `currentSettings` with new choices.
-      currentSettings = SettingsScreen.execute(currentSettings);
+      currentSettings = settingsScreen.execute(currentSettings);
       // TODO: initialize `player1` and `player2` based on settings
       changeSettings = false;
     }
-    latestScore = GameScreen.execute(playToScore);
+    latestScore = gameScreen.execute(playToScore);
     // TODO: determine winner and execute `winScreen`, `loseScreen`, or `twoPlayerEndScreen`
     // NB: any of these `EndScreen`s should return a value on execution to indicate if settings must be changed
   }
