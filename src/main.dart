@@ -8,19 +8,14 @@ import 'score.dart';
 import 'settings.dart';
 
 void main() {
-  // TODO: define `IntroScreen`
+  // TODO: Define `IntroScreen`.
   IntroScreen introScreen = new IntroScreen();
-  // TODO: define `SettingsScreen`
+  // TODO: Define `SettingsScreen`.
   SettingsScreen settingsScreen = new SettingsScreen();
-  // TODO: define `GameScreen`
+  // TODO: Define `GameScreen`.
   GameScreen gameScreen = new GameScreen();
-  // TODO: define `EndScreen` as parent class of those below here
-  // TODO: define `WinScreen`
-  WinScreen winScreen = new WinScreen();
-  // TODO: define `LoseScreen`
-  LoseScreen loseScreen = new LoseScreen();
-  // TODO: define `TwoPlayerEndScreen`
-  TwoPlayerEndScreen twoPlayerEndScreen = new TwoPlayerEndScreen();
+  // TODO: Define `EndScreen`.
+  EndScreen endScreen = new EndScreen();
 
   Score latestScore = new Score(0, 0);
   Settings currentSettings = new Settings();
@@ -29,11 +24,18 @@ void main() {
   introScreen.execute();
   while (true) {
     if (changeSettings) {
-      currentSettings = settingsScreen.execute(currentSettings);
+      settingsScreen.execute(currentSettings);
+      currentSettings = settingsScreen.getSettings();
       changeSettings = false;
     }
-    latestScore = gameScreen.execute(currentSettings);
-    // TODO: determine winner and execute `winScreen`, `loseScreen`, or `twoPlayerEndScreen`
-    // NB: any of these `EndScreen`s should return a value on execution to indicate if settings must be changed
+
+    gameScreen.execute(currentSettings);
+    latestScore = gameScreen.getScore();
+    gameScreen.reset();
+
+    endScreen.setScore(latestScore);
+    endScreen.setIsTwoPlayer(currentSettings.isTwoPlayer);
+    endScreen.execute();
+    changeSettings = endScreen.mustChangeSettings();
   }
 }
