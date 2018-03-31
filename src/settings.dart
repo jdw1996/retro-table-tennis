@@ -5,12 +5,10 @@
 //
 
 class Settings {
-  bool isHumanPlayer1;
-  bool isHumanPlayer2;
+  bool isTwoPlayer;
   int playToScore;
 
-  Settings(bool isHumanPlayer1, bool isHumanPlayer2, int playToScore)
-      : isHumanPlayer1 = isHumanPlayer1,
-        isHumanPlayer2 = isHumanPlayer2,
+  Settings(bool isTwoPlayer, int playToScore)
+      : isTwoPlayer = isTwoPlayer,
         playToScore = playToScore;
 }
