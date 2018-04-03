@@ -4,6 +4,7 @@
 // July 2017
 //
 
+import 'input.dart';
 import 'score.dart';
 import 'settings.dart';
 import 'screen.dart';
@@ -15,6 +16,10 @@ class Main {
   // Canvas to draw the game on.
   CanvasElement _canvas;
   CanvasRenderingContext2D _canvasContext;
+
+  // Objects to handle mouse and keyboard input.
+  Keyboard _keyboard;
+  Mouse _mouse;
 
   // Objects containing logic for different display modes.
   IntroScreen _introScreen;
@@ -36,16 +41,19 @@ class Main {
 
   // Constructor.
   Main() {
-    canvas = querySelector("#mycanvas")..focus();
+    _canvas = querySelector("#mycanvas")..focus();
+
+    _keyboard = new Keyboard();
+    _mouse = new Mouse();
 
     // TODO: Define `IntroScreen`.
-    _introScreen = new IntroScreen(_canvas);
+    _introScreen = new IntroScreen(_canvas, _mouse);
     // TODO: Define `SettingsScreen`.
-    _settingsScreen = new SettingsScreen(_canvas);
+    _settingsScreen = new SettingsScreen(_canvas, _mouse);
     // TODO: Define `GameScreen`.
-    _gameScreen = new GameScreen(_canvas);
+    _gameScreen = new GameScreen(_canvas, _keyboard);
     // TODO: Define `EndScreen`.
-    _endScreen = new EndScreen(_canvas);
+    _endScreen = new EndScreen(_canvas, _mouse);
 
     _currentScreen = _introScreen;
   }
