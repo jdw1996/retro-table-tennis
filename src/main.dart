@@ -59,10 +59,35 @@ class Main {
   }
 
   // Clear the canvas.
-  void clear() {
+  void _clear() {
     _canvasContext
       ..fillStyle = "black"
       ..fillRect(0, 0, _canvas.width, _canvas.height);
+  }
+
+  // Check if `_currentScreen` is done executing and transition if so.
+  void _checkAndTransitionScreen() {
+    if (!_currentScreen.isDone()) return;
+
+    Screen nextScreen;
+    if (identical(_currentScreen, _introScreen)) {
+      nextScreen = _settingsScreen;
+    } else if (identical(_currentScreen, _settingsScreen)) {
+      nextScreen = _gameScreen;
+      _currentSettings = _settingsScreen.getSettings();
+      _gameScreen.setSettings(_currentSettings);
+    } else if (identical(_currentScreen, _gameScreen)) {
+      nextScreen = _endScreen;
+      _latestScore = _gameScreen.getScore();
+      _endScreen.setScore(_latestScore, _currentSettings.isTwoPlayer);
+    } else {
+      // Must have: identical(_currentScreen, _endScreen)
+      nextScreen =
+          _endScreen.mustChangeSettings() ? _settingsScreen : _gameScreen;
+    }
+
+    _currentScreen.reset();
+    _currentScreen = nextScreen;
   }
 
   // Advance all game mechanics and display the game.
@@ -73,6 +98,7 @@ class Main {
       _lastUpdateTime = currentTime;
       _clear();
       _currentScreen.updateAndDraw();
+      _checkAndTransitionScreen();
     }
 
     // Continue the game loop.
