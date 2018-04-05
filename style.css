@@ -1,45 +1,39 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
 
+:root {
+    --fg-colour: black;
+    --bg-colour: white;
+    --accent-colour: #0044ee;
+    --code-bg-colour: #f4f4f4;
+}
+
 body {
-    background-color: #ffffff;
+    background-color: var(--bg-colour);
     font-family: "Source Sans Pro";
     font-weight: normal;
-    font-size: 20pt;
-    color: #202020;
+    font-size: 1.3em;
+    color: var(--fg-colour);
 }
 
 header {
     text-align: center;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header p {
-    font-family: "Source Code Pro";
-    margin: 0;
+h1, #byline {
+  margin-top: 0em;
 }
 
-h1 {
-    font-size: 56pt;
-}
-
-h2 {
-    font-size: 20pt;
-}
-
-a {
-    color: #268bd2;
+a:link,
+a:visited {
     text-decoration: none;
+    border-bottom: 1px solid var(--accent-colour);
+    color: var(--fg-colour);
 }
-
-a:hover,
-a:focus {
-    color: #68b0e3;
+a:hover {
+    text-decoration: none;
+    border-bottom: none;
+    color: var(--accent-colour);
 }
 
 canvas {
@@ -53,10 +47,7 @@ p {
 }
 
 #scoreblock {
-    font-size: 1.3em;
-}
-
-#score {
+    margin: 0em;
     font-family: "Source Code Pro";
-    font-size: 2em;
+    font-size: 3em;
 }
