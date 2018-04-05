@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700);
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700);
 
 :root {
     --fg-colour: black;
@@ -10,9 +10,9 @@
 
 body {
     background-color: var(--bg-colour);
-    font-family: "Source Sans Pro";
+    font-family: "IBM Plex Sans";
     font-weight: normal;
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: var(--fg-colour);
 }
 
@@ -48,6 +48,6 @@ p {
 
 #scoreblock {
     margin: 0em;
-    font-family: "Source Code Pro";
+    font-family: "IBM Plex Mono";
     font-size: 3em;
 }
