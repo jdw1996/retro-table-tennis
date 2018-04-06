@@ -22,7 +22,6 @@ class Main {
   Mouse _mouse;
 
   // Objects containing logic for different display modes.
-  IntroScreen _introScreen;
   SettingsScreen _settingsScreen;
   GameScreen _gameScreen;
   EndScreen _endScreen;
@@ -46,8 +45,6 @@ class Main {
     _keyboard = new Keyboard();
     _mouse = new Mouse();
 
-    // TODO: Define `IntroScreen`.
-    _introScreen = new IntroScreen(_canvas, _mouse);
     // TODO: Define `SettingsScreen`.
     _settingsScreen = new SettingsScreen(_canvas, _mouse);
     // TODO: Define `GameScreen`.
@@ -55,7 +52,7 @@ class Main {
     // TODO: Define `EndScreen`.
     _endScreen = new EndScreen(_canvas, _mouse);
 
-    _currentScreen = _introScreen;
+    _currentScreen = _settingsScreen;
   }
 
   // Clear the canvas.
@@ -70,9 +67,7 @@ class Main {
     if (!_currentScreen.isDone()) return;
 
     Screen nextScreen;
-    if (identical(_currentScreen, _introScreen)) {
-      nextScreen = _settingsScreen;
-    } else if (identical(_currentScreen, _settingsScreen)) {
+    if (identical(_currentScreen, _settingsScreen)) {
       nextScreen = _gameScreen;
       _currentSettings = _settingsScreen.getSettings();
       _gameScreen.setSettings(_currentSettings);
