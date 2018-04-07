@@ -48,5 +48,5 @@ class Mouse {
   }
 
   // Return the coordinates of the most recent click.
-  List getClickCoordinates() => [_clickX, _clickY];
+  List<int> getClickCoordinates() => [_clickX, _clickY];
 }
