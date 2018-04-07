@@ -12,6 +12,12 @@ class EndScreen extends Screen {
   bool _isDone = false;
   // For getting clicks.
   final Mouse _mouse;
+  // Score of the game just ended.
+  Score _latestScore;
+  // If `true`, there were two human players in the game.
+  bool _isTwoPlayer;
+  // If `true`, settings must be changed before replaying.
+  bool _mustChangeSettings;
 
   // Constructor.
   EndScreen(CanvasElement canvas, Mouse mouse)
@@ -44,4 +50,13 @@ class EndScreen extends Screen {
   void reset() {
     _isDone = false;
   }
+
+  // Set the score of the game just ended.
+  void setScore(score, isTwoPlayer) {
+    _latestScore = score;
+    _isTwoPlayer = isTwoPlayer;
+  }
+
+  // Return `true` if settings must be changed before replaying; else `false`.
+  bool mustChangeSettings() => _mustChangeSettings;
 }
