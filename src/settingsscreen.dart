@@ -23,7 +23,7 @@ class SettingsScreen extends Screen {
     // TODO: Implement.
   }
 
-  // Display the updated display on the canvas.
+  // Display the updated state on the canvas.
   void _display() {
     // TODO: Implement.
   }
