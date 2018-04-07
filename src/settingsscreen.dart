@@ -8,17 +8,22 @@ import 'input.dart';
 import 'screen.dart';
 
 class SettingsScreen extends Screen {
+  // If `true`, it's time to transition to the next screen.
   bool _isDone = false;
+  // For getting clicks.
   final Mouse _mouse;
 
-  IntroScreen(CanvasElement canvas, Mouse mouse)
+  // Constructor.
+  SettingsScreen(CanvasElement canvas, Mouse mouse)
       : super(canvas),
         _mouse = mouse;
 
+  // Perform logical updates.
   void _update() {
     // TODO: Implement.
   }
 
+  // Display the updated display on the canvas.
   void _display() {
     // TODO: Implement.
   }
