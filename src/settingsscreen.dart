@@ -6,12 +6,15 @@
 
 import 'input.dart';
 import 'screen.dart';
+import 'settings.dart';
 
 class SettingsScreen extends Screen {
   // If `true`, it's time to transition to the next screen.
   bool _isDone = false;
   // For getting clicks.
   final Mouse _mouse;
+  // Current settings.
+  Settings _currentSettings;
 
   // Constructor.
   SettingsScreen(CanvasElement canvas, Mouse mouse)
@@ -44,4 +47,7 @@ class SettingsScreen extends Screen {
   void reset() {
     _isDone = false;
   }
+
+  // Return the current settings.
+  Settings getSettings() => _currentSettings;
 }
