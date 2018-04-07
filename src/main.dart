@@ -8,6 +8,9 @@ import 'input.dart';
 import 'score.dart';
 import 'settings.dart';
 import 'screen.dart';
+import 'settingsscreen.dart';
+import 'gamescreen.dart';
+import 'endscreen.dart';
 
 class Main {
   // Minimum time in milliseconds between game and screen updates.
@@ -45,11 +48,8 @@ class Main {
     _keyboard = new Keyboard();
     _mouse = new Mouse();
 
-    // TODO: Define `SettingsScreen`.
     _settingsScreen = new SettingsScreen(_canvas, _mouse);
-    // TODO: Define `GameScreen`.
     _gameScreen = new GameScreen(_canvas, _keyboard);
-    // TODO: Define `EndScreen`.
     _endScreen = new EndScreen(_canvas, _mouse);
 
     _currentScreen = _settingsScreen;
