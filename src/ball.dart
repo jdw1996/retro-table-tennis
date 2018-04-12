@@ -25,7 +25,7 @@ class Ball {
 
   // Return a list containing the x- and y-coordinates of the centre.
   List<int> getCentreCoordinates() {
-    // TODO: Implement.
+    return [_x, _y];
   }
 
   // Move the ball.
