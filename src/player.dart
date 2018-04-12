@@ -34,7 +34,11 @@ abstract class Player {
         _ball = ball;
 
   // Return a list containing the x- and y-coordinates of the top-left corner.
-  List<int> getTopLeftCoordinates();
+  List<int> getTopLeftCoordinates() {
+    int x =
+        _isPlayer1 ? _PLAYER1_LEFT_EDGE : (_PLAYER2_RIGHT_EDGE - PADDLE_WIDTH);
+    return [x, _top];
+  }
 
   // Check collisions with `_ball`.
   void checkCollisionsWithBall() {
