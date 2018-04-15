@@ -30,9 +30,9 @@ class GameScreen extends Screen {
   int _playToScore = 7;
 
   // Constructor.
-  GameScreen(CanvasElement canvas, Mouse mouse)
+  GameScreen(CanvasElement canvas, Keyboard keyboard)
       : super(canvas),
-        _mouse = mouse {
+        _keyboard = keyboard {
     _currentScore = new Score();
     _ball = new Ball();
     // Player 1 is always human.
