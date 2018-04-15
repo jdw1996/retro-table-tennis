@@ -6,9 +6,7 @@
 
 import 'dart:math';
 
-enum Angle {
-  STEEP, MIDDLE, STRAIGHT
-}
+enum Angle { STEEP, MIDDLE, STRAIGHT }
 
 class Ball {
   // TODO: Adjust these numbers as necessary.
@@ -56,7 +54,7 @@ class Ball {
       return;
     }
 
-    num angle = _currentAngle == Angle.STEEP ? PI/4 : PI/8;
+    num angle = _currentAngle == Angle.STEEP ? PI / 4 : PI / 8;
     _x += (cos(angle) * _speed).round();
     _y += (sin(angle) * _speed).round();
     if (_y + RADIUS > _canvasHeight) {
