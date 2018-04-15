@@ -46,7 +46,22 @@ class GameScreen extends Screen {
 
   // Perform logical updates.
   void _update() {
-    // TODO: Implement.
+    _ball.move();
+    if (keyboard.isPressed(KeyCode.W)) {
+      _player1.moveUp();
+    } else if (keyboard.isPressed(KeyCode.S)) {
+      _player1.moveDown();
+    }
+    if (identical(_player2, _player2Human)) {
+      if (keyboard.isPressed(KeyCode.UP)) {
+        _player2Human.moveUp();
+      } else if (keyboard.isPressed(KeyCode.DOWN)) {
+        _player2Human.moveDown();
+      }
+    } else {
+      _player2AI.move();
+    }
+    // TODO: Check if point scored.
   }
 
   // Display the updated state on the canvas.
