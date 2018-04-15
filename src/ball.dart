@@ -53,6 +53,79 @@ class Ball {
     _horizontalFactor = [-1, 1][random.nextInt(2)];
   }
 
+  // If `rotation` is -1, rotate counter-clockwise; if 0, no rotation; if 1,
+  // rotate clockwise.
+  void _rotateAngle(int rotation) {
+    if (rotation == 0) {
+      // No rotation necessary.
+      return;
+    } else if (rotation == -1) {
+      // Rotate counter-clockwise.
+      if (_verticalFactor == 0) {
+        _verticalFactor = -_horizontalFactor;
+        _currentAngle = Angle.MIDDLE;
+      } else if (_verticalFactor == -1) {
+        if (_horizontalFactor == -1) {
+          // The ball is moving northwest.
+          if (_currentAngle == Angle.STEEP) {
+            _currentAngle == Angle.MIDDLE;
+          } else {
+            _currentAngle = Angle.STRAIGHT;
+            _verticalFactor = 0;
+          }
+        } else {
+          // The ball is moving northeast.
+          _currentAngle == Angle.STEEP;
+        }
+      } else {
+        if (_horizontalFactor == -1) {
+          // The ball is moving southwest.
+          _currentAngle == Angle.STEEP;
+        } else {
+          // The ball is moving southeast.
+          if (_currentAngle == Angle.STEEP) {
+            _currentAngle == Angle.MIDDLE;
+          } else {
+            _currentAngle = Angle.STRAIGHT;
+            _verticalFactor = 0;
+          }
+        }
+      }
+    } else {
+      // Rotate clockwise.
+      if (_verticalFactor == 0) {
+        _verticalFactor = _horizontalFactor;
+        _currentAngle = Angle.MIDDLE;
+      } else if (_verticalFactor == -1) {
+        if (_horizontalFactor == -1) {
+          // The ball is moving northwest.
+          _currentAngle = Angle.STEEP;
+        } else {
+          // The ball is moving northeast.
+          if (_currentAngle == Angle.STEEP) {
+            _currentAngle == Angle.MIDDLE;
+          } else {
+            _currentAngle = Angle.STRAIGHT;
+            _verticalFactor = 0;
+          }
+        }
+      } else {
+        if (_horizontalFactor == -1) {
+          // The ball is moving southwest.
+          if (_currentAngle == Angle.STEEP) {
+            _currentAngle = Angle.MIDDLE;
+          } else {
+            _currentAngle = Angle.STRAIGHT;
+            _verticalFactor = 0;
+          }
+        } else {
+          // The ball is moving southeast.
+          _currentAngle = Angle.STEEP;
+        }
+      }
+    }
+  }
+
   // Return a list containing the x- and y-coordinates of the centre.
   List<int> getCentreCoordinates() {
     return [_x, _y];
@@ -89,7 +162,7 @@ class Ball {
       _x = (2 * paddleX) - _x + (2 * RADIUS);
     }
     _horizontalFactor *= -1;
-    // TODO: Implement rotation.
+    _rotateAngle(rotation);
   }
 
   // Return the ball to the centre of the screen.
