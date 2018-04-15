@@ -79,6 +79,19 @@ class Ball {
     }
   }
 
+  // Reverse the ball's horizontal direction and change angle if necessary.
+  // If `rotation` is -1, rotate counter-clockwise; if 0, no rotation; if 1,
+  // rotate clockwise.
+  void bounceOffPaddle(int paddleX, int rotation) {
+    if (_horizontalFactor == 1) {
+      _x = (2 * paddleX) - _x - (2 * RADIUS);
+    } else {
+      _x = (2 * paddleX) - _x + (2 * RADIUS);
+    }
+    _horizontalFactor *= -1;
+    // TODO: Implement rotation.
+  }
+
   // Return the ball to the centre of the screen.
   void reset() {
     _x = _INITIAL_X;
