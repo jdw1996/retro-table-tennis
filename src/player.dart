@@ -12,10 +12,10 @@ abstract class Player {
   static const int PADDLE_HEIGHT = 150;
   // Width of the paddles.
   static const int PADDLE_WIDTH = 25;
-  // X-coordinate for the left edge of Player 1's paddle.
-  static const int _PLAYER1_LEFT_EDGE = 50;
-  // X-coordinate for the right edge of Player 2's paddle.
-  static const int _PLAYER2_RIGHT_EDGE = 950;
+  // X-coordinate for the right edge of Player 1's paddle.
+  static const int _PLAYER1_RIGHT_EDGE = 50;
+  // X-coordinate for the left edge of Player 2's paddle.
+  static const int _PLAYER2_LEFT_EDGE = 950;
   // Number of pixels the paddle can move vertically per frame.
   static const int _PADDLE_SPEED = 10;
 
@@ -36,7 +36,7 @@ abstract class Player {
   // Return a list containing the x- and y-coordinates of the top-left corner.
   List<int> getTopLeftCoordinates() {
     int x =
-        _isPlayer1 ? _PLAYER1_LEFT_EDGE : (_PLAYER2_RIGHT_EDGE - PADDLE_WIDTH);
+        _isPlayer1 ? (_PLAYER1_RIGHT_EDGE - PADDLE_WIDTH) : _PLAYER2_LEFT_EDGE;
     return [x, _top];
   }
 
