@@ -20,14 +20,14 @@ class GameScreen extends Screen {
   // Current score of the game.
   final Score _currentScore;
   // Players of the game.
-  // TODO: Define `Player`, `HumanPlayer`, and `AIPlayer`.
   Player _player1;
   Player _player2AI;
   Player _player2Human;
   Player _player2;
   // Ball for the game.
-  // TODO: Define `Ball`.
   final Ball _ball;
+  // Maximum score to play to.
+  int _playToScore = 7;
 
   // Constructor.
   GameScreen(CanvasElement canvas, Mouse mouse)
@@ -69,13 +69,13 @@ class GameScreen extends Screen {
   @override
   void reset() {
     _isDone = false;
-    // TODO: Finish implementing.
+    _currentScore.reset();
   }
 
   // Use `newSettings` as the settings for the game.
   void setSettings(Settings newSettings) {
-    _currentSettings = newSettings;
-    // TODO: Finish implementing.
+    _player2 = newSettings.isTwoPlayer ? _player2Human : _player2AI;
+    _playToScore = newSettings.playToScore;
   }
 
   // Return the current score of the game.
