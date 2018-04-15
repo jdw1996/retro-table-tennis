@@ -19,6 +19,8 @@ class GameScreen extends Screen {
   final Keyboard _keyboard;
   // Current score of the game.
   final Score _currentScore;
+  // HTML element to hold current score of the game.
+  Element scoreElement;
   // Players of the game.
   Player _player1;
   Player _player2AI;
@@ -46,7 +48,7 @@ class GameScreen extends Screen {
 
   // Update the score displayed on the screen.
   void _updateDisplayedScore() {
-    // TODO: Implement.
+    scoreElement.text = "${_currentScore.score1}-${_currentScore.score2}";
   }
 
   // Add a point to Player 1's total.
