@@ -44,14 +44,25 @@ class GameScreen extends Screen {
     _player2 = _player2AI;
   }
 
+  // Update the score displayed on the screen.
+  void _updateDisplayedScore() {
+    // TODO: Implement.
+  }
+
   // Add a point to Player 1's total.
   void _player1Score() {
-    // TODO: Implement.
+    _currentScore.score1 += 1;
+    _updateDisplayedScore();
+    _ball.reset();
+    if (_currentScore.score1 == _playToScore) _isDone = true;
   }
 
   // Add a point to Player 2's total.
   void _player2Score() {
-    // TODO: Implement.
+    _currentScore.score2 += 1;
+    _updateDisplayedScore();
+    _ball.reset();
+    if (_currentScore.score2 == _playToScore) _isDone = true;
   }
 
   // Perform logical updates.
