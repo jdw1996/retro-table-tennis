@@ -44,14 +44,27 @@ class GameScreen extends Screen {
     _player2 = _player2AI;
   }
 
+  // Add a point to Player 1's total.
+  void _player1Score() {
+    // TODO: Implement.
+  }
+
+  // Add a point to Player 2's total.
+  void _player2Score() {
+    // TODO: Implement.
+  }
+
   // Perform logical updates.
   void _update() {
+    // Move the ball.
     _ball.move();
+    // Move Player 1.
     if (keyboard.isPressed(KeyCode.W)) {
       _player1.moveUp();
     } else if (keyboard.isPressed(KeyCode.S)) {
       _player1.moveDown();
     }
+    // Move Player 2.
     if (identical(_player2, _player2Human)) {
       if (keyboard.isPressed(KeyCode.UP)) {
         _player2Human.moveUp();
@@ -61,7 +74,13 @@ class GameScreen extends Screen {
     } else {
       _player2AI.move();
     }
-    // TODO: Check if point scored.
+    // Check if a point has been scored.
+    int ballX = _ball.getCentreCoordinates()[0];
+    if (ballX + _ball.RADIUS < 0) {
+      _player2Score();
+    } else if (ballX - _ball.RADIUS > _canvas.width) {
+      _player1Score();
+    }
   }
 
   // Display the updated state on the canvas.
