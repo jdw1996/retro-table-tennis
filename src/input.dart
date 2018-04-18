@@ -4,6 +4,8 @@
 // March 2018
 //
 
+import 'dart:collection';
+
 // The `Keyboard` class used here is taken from the following page:
 // https://dart.academy/web-games-with-dart-and-the-html5-canvas/
 // The `Mouse` class below is also based on this code.
