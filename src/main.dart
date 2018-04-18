@@ -4,6 +4,8 @@
 // July 2017
 //
 
+import 'dart:html';
+
 import 'input.dart';
 import 'score.dart';
 import 'settings.dart';
