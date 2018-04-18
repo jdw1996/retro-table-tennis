@@ -23,12 +23,14 @@ class SettingsScreen extends Screen {
 
   // Perform logical updates.
   void _update() {
-    // TODO: Implement.
+    // TODO: Implement actual functionality.
+    if (_mouse.hasNewClick()) _isDone = true;
   }
 
   // Display the updated state on the canvas.
   void _display() {
-    // TODO: Implement.
+    _clearScreen();
+    // TODO: Implement actual functionality.
   }
 
   // Execute any necessary game actions and draw the new state on the canvas.
