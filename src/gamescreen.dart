@@ -4,6 +4,9 @@
 // April 2018
 //
 
+import 'dart:html';
+import 'dart:math';
+
 import 'input.dart';
 import 'score.dart';
 import 'screen.dart';
@@ -98,7 +101,25 @@ class GameScreen extends Screen {
 
   // Display the updated state on the canvas.
   void _display() {
-    // TODO: Implement.
+    // Display Player 1.
+    List<int> player1Coordinates = _player1.getTopLeftCoordinates();
+    _canvasContext
+      ..fillStyle = "red"
+      ..fillRect(player1Coordinates[0], player1Coordinates[1],
+          _player1.PADDLE_WIDTH, _player1.PADDLE_HEIGHT);
+    // Display Player 2.
+    List<int> player2Coordinates = _player2.getTopLeftCoordinates();
+    _canvasContext
+      ..fillStyle = "blue"
+      ..fillRect(player2Coordinates[0], player2Coordinates[1],
+          _player2.PADDLE_WIDTH, _player2.PADDLE_HEIGHT);
+    // Display the ball.
+    List<int> ballCoordinates = _ball.getCentreCoordinates();
+    _canvasContext
+      ..fillStyle = "white"
+      ..beginPath()
+      ..arc(ballCoordinates[0], ballCoordinates[1], _ball.RADIUS, 0, 2 * PI)
+      ..fill();
   }
 
   // Execute any necessary game actions and draw the new state on the canvas.
