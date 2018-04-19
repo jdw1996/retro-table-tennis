@@ -26,9 +26,9 @@ class GameDisplay extends Display {
   // HTML element to hold current score of the game.
   Element scoreElement;
   // Players of the game.
-  Player _player1;
-  Player _player2AI;
-  Player _player2Human;
+  HumanPlayer _player1;
+  AIPlayer _player2AI;
+  HumanPlayer _player2Human;
   Player _player2;
   // Ball for the game.
   final Ball _ball;
