@@ -8,13 +8,13 @@ import 'dart:html';
 
 abstract class Display {
   // Canvas to draw the game on.
-  final CanvasElement _canvas;
+  final CanvasElement canvas;
   // Drawing context for the canvas.
-  final CanvasRenderingContext2D _canvasContext;
+  final CanvasRenderingContext2D canvasContext;
   // Constructor.
   Display(CanvasElement canvas)
-      : _canvas = canvas,
-        _canvasContext = canvas.getContext("2d");
+      : canvas = canvas,
+        canvasContext = canvas.getContext("2d");
   // Execute any necessary game actions and draw the new state on the canvas.
   void updateAndDraw();
   // Return `true` if it's time to transition to the next display; else `false`.
@@ -23,8 +23,8 @@ abstract class Display {
   void reset();
   // Clear the canvas.
   void clearDisplay() {
-    _canvasContext
+    canvasContext
       ..fillStyle = "black"
-      ..fillRect(0, 0, _canvas.width, _canvas.height);
+      ..fillRect(0, 0, canvas.width, canvas.height);
   }
 }

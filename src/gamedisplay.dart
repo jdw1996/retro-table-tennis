@@ -42,10 +42,10 @@ class GameDisplay extends Display {
     _currentScore = new Score();
     _ball = new Ball();
     // Player 1 is always human.
-    _player1 = new HumanPlayer(_canvas.height);
+    _player1 = new HumanPlayer(canvas.height);
     // Player 2 may be either human or AI.
-    _player2AI = new AIPlayer(_canvas.height, _ball);
-    _player2Human = new HumanPlayer(_canvas.height);
+    _player2AI = new AIPlayer(canvas.height, _ball);
+    _player2Human = new HumanPlayer(canvas.height);
     // Let Player 2 be AI by default.
     _player2 = _player2AI;
   }
@@ -95,7 +95,7 @@ class GameDisplay extends Display {
     int ballX = _ball.getCentreCoordinates()[0];
     if (ballX + _ball.RADIUS < 0) {
       _player2Score();
-    } else if (ballX - _ball.RADIUS > _canvas.width) {
+    } else if (ballX - _ball.RADIUS > canvas.width) {
       _player1Score();
     }
   }
@@ -105,19 +105,19 @@ class GameDisplay extends Display {
     clearDisplay();
     // Display Player 1.
     List<int> player1Coordinates = _player1.getTopLeftCoordinates();
-    _canvasContext
+    canvasContext
       ..fillStyle = "red"
       ..fillRect(player1Coordinates[0], player1Coordinates[1],
           _player1.PADDLE_WIDTH, _player1.PADDLE_HEIGHT);
     // Display Player 2.
     List<int> player2Coordinates = _player2.getTopLeftCoordinates();
-    _canvasContext
+    canvasContext
       ..fillStyle = "blue"
       ..fillRect(player2Coordinates[0], player2Coordinates[1],
           _player2.PADDLE_WIDTH, _player2.PADDLE_HEIGHT);
     // Display the ball.
     List<int> ballCoordinates = _ball.getCentreCoordinates();
-    _canvasContext
+    canvasContext
       ..fillStyle = "white"
       ..beginPath()
       ..arc(ballCoordinates[0], ballCoordinates[1], _ball.RADIUS, 0, 2 * PI)
