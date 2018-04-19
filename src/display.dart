@@ -4,6 +4,8 @@
 // March 2018
 //
 
+import 'dart:html';
+
 abstract class Display {
   // Canvas to draw the game on.
   final CanvasElement _canvas;
