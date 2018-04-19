@@ -8,6 +8,7 @@ import 'dart:html';
 
 import 'input.dart';
 import 'display.dart';
+import 'score.dart';
 
 class EndDisplay extends Display {
   // If `true`, it's time to transition to the next display.
