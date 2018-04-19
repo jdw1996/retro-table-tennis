@@ -93,9 +93,9 @@ class GameDisplay extends Display {
     }
     // Check if a point has been scored.
     int ballX = _ball.getCentreCoordinates()[0];
-    if (ballX + _ball.RADIUS < 0) {
+    if (ballX + Ball.RADIUS < 0) {
       _player2Score();
-    } else if (ballX - _ball.RADIUS > canvas.width) {
+    } else if (ballX - Ball.RADIUS > canvas.width) {
       _player1Score();
     }
   }
@@ -120,7 +120,7 @@ class GameDisplay extends Display {
     canvasContext
       ..fillStyle = "white"
       ..beginPath()
-      ..arc(ballCoordinates[0], ballCoordinates[1], _ball.RADIUS, 0, 2 * PI)
+      ..arc(ballCoordinates[0], ballCoordinates[1], Ball.RADIUS, 0, 2 * PI)
       ..fill();
   }
 
