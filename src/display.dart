@@ -22,7 +22,7 @@ abstract class Display {
   // Return the `Display` to its original state.
   void reset();
   // Clear the canvas.
-  void _clearDisplay() {
+  void clearDisplay() {
     _canvasContext
       ..fillStyle = "black"
       ..fillRect(0, 0, _canvas.width, _canvas.height);

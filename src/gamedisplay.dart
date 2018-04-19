@@ -102,6 +102,7 @@ class GameDisplay extends Display {
 
   // Display the updated state on the canvas.
   void _display() {
+    clearDisplay();
     // Display Player 1.
     List<int> player1Coordinates = _player1.getTopLeftCoordinates();
     _canvasContext

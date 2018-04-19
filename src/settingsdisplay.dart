@@ -31,7 +31,7 @@ class SettingsDisplay extends Display {
 
   // Display the updated state on the canvas.
   void _display() {
-    _clearDisplay();
+    clearDisplay();
     // TODO: Implement actual functionality.
   }
 
