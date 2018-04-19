@@ -20,6 +20,6 @@ class HumanPlayer extends Player {
   // Move the paddle down `_PADDLE_SPEED` pixels.
   void moveDown() {
     _top += _PADDLE_SPEED;
-    _top = min(_top, _canvasHeight - PADDLE_HEIGHT);
+    _top = min(_top, _canvasHeight - Player.PADDLE_HEIGHT);
   }
 }

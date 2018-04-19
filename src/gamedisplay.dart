@@ -108,13 +108,13 @@ class GameDisplay extends Display {
     canvasContext
       ..fillStyle = "red"
       ..fillRect(player1Coordinates[0], player1Coordinates[1],
-          _player1.PADDLE_WIDTH, _player1.PADDLE_HEIGHT);
+          Player.PADDLE_WIDTH, Player.PADDLE_HEIGHT);
     // Display Player 2.
     List<int> player2Coordinates = _player2.getTopLeftCoordinates();
     canvasContext
       ..fillStyle = "blue"
       ..fillRect(player2Coordinates[0], player2Coordinates[1],
-          _player2.PADDLE_WIDTH, _player2.PADDLE_HEIGHT);
+          Player.PADDLE_WIDTH, Player.PADDLE_HEIGHT);
     // Display the ball.
     List<int> ballCoordinates = _ball.getCentreCoordinates();
     canvasContext

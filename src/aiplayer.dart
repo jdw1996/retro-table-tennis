@@ -21,8 +21,8 @@ class AIPlayer extends Player {
     if (_top < 0) {
       _top = 0;
       _currentDirection *= -1;
-    } else if (_top + PADDLE_HEIGHT > _canvasHeight) {
-      _top = _canvasHeight - PADDLE_HEIGHT;
+    } else if (_top + Player.PADDLE_HEIGHT > _canvasHeight) {
+      _top = _canvasHeight - Player.PADDLE_HEIGHT;
       _currentDirection *= -1;
     }
   }
