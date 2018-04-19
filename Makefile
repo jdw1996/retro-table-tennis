@@ -5,7 +5,7 @@ SOURCE_MAIN_FILE := ${SOURCE_DIR}/main.dart
 SOURCE_FILES := $(wildcard ${SOURCE_DIR}/*.dart)
 
 OUTPUT_DIR := build
-OUTPUT_FILE := main.js
+OUTPUT_FILE := ${OUTPUT_DIR}/main.js
 
 .PHONY: all
 
