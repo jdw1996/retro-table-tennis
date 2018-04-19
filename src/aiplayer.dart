@@ -17,12 +17,12 @@ class AIPlayer extends Player {
   @override
   void move() {
     // TODO: Implement actual functionality.
-    _top += _currentDirection * _PADDLE_SPEED;
-    if (_top < 0) {
-      _top = 0;
+    top += _currentDirection * _PADDLE_SPEED;
+    if (top < 0) {
+      top = 0;
       _currentDirection *= -1;
-    } else if (_top + Player.PADDLE_HEIGHT > _canvasHeight) {
-      _top = _canvasHeight - Player.PADDLE_HEIGHT;
+    } else if (top + Player.PADDLE_HEIGHT > canvasHeight) {
+      top = canvasHeight - Player.PADDLE_HEIGHT;
       _currentDirection *= -1;
     }
   }

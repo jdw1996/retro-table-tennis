@@ -20,13 +20,13 @@ abstract class Player {
   static const int _PADDLE_SPEED = 10;
 
   // If `true`, this is Player 1, on the left; else Player 2, on the right.
-  final bool _isPlayer1;
+  final bool isPlayer1;
   // Y-coordinate for the top of the paddle.
-  int _top = 175;
+  int top = 175;
   // The ball in play.
-  final Ball _ball;
+  final Ball ball;
   // The maximum possible y-coordinate.
-  final int _canvasHeight;
+  final int canvasHeight;
 
   // Constructor.
   Player(int canvasHeight, Ball ball)
@@ -37,7 +37,7 @@ abstract class Player {
   List<int> getTopLeftCoordinates() {
     int x =
         _isPlayer1 ? (_PLAYER1_RIGHT_EDGE - PADDLE_WIDTH) : _PLAYER2_LEFT_EDGE;
-    return [x, _top];
+    return [x, top];
   }
 
   // Check collisions with `_ball`.
@@ -47,9 +47,9 @@ abstract class Player {
     int ballX = ballCoordinates[0];
     int ballY = ballCoordinates[1];
     int ballRadius = _ball.RADIUS;
-    int paddleBottom = _top + PADDLE_HEIGHT;
-    int paddleOneThirdDown = _top + (PADDLE_HEIGHT ~/ 3);
-    int paddleTwoThirdsDown = _top + ((PADDLE_HEIGHT ~/ 3) * 2);
+    int paddleBottom = top + PADDLE_HEIGHT;
+    int paddleOneThirdDown = top + (PADDLE_HEIGHT ~/ 3);
+    int paddleTwoThirdsDown = top + ((PADDLE_HEIGHT ~/ 3) * 2);
     // If the ball is past the paddles, it cannot be stopped.
     if (ballX > _PLAYER2_LEFT_EDGE || ballX < _PLAYER1_RIGHT_EDGE) return;
     // If the ball is in the middle of the board, it cannot bounce.
@@ -62,8 +62,8 @@ abstract class Player {
         _ball.bounceOffPaddle(_PLAYER1_RIGHT_EDGE, 0);
       } else if (ballY <= paddleOneThirdDown) {
         // Check if ball is contacting paddle.
-        bool shouldBounce = ballY >= _top ||
-            sqrt(pow(ballX - _PLAYER1_RIGHT_EDGE, 2) + pow(ballY - _top, 2)) <
+        bool shouldBounce = ballY >= top ||
+            sqrt(pow(ballX - _PLAYER1_RIGHT_EDGE, 2) + pow(ballY - top, 2)) <
                 _ball.RADIUS;
         // Ball is bouncing off top of paddle; angle slightly
         // counter-clockwise.
@@ -84,8 +84,8 @@ abstract class Player {
         _ball.bounceOffPaddle(_PLAYER2_LEFT_EDGE, 0);
       } else if (ballY <= paddleOneThirdDown) {
         // Check if ball is contacting paddle.
-        bool shouldBounce = ballY >= _top ||
-            sqrt(pow(ballX - _PLAYER2_LEFT_EDGE, 2) + pow(ballY - _top, 2)) <
+        bool shouldBounce = ballY >= top ||
+            sqrt(pow(ballX - _PLAYER2_LEFT_EDGE, 2) + pow(ballY - top, 2)) <
                 _ball.RADIUS;
         // Ball is bouncing off top of paddle; angle slightly clockwise.
         if (shouldBounce) _ball.bounceOffPaddle(_PLAYER2_LEFT_EDGE, 1);

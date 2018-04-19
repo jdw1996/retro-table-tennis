@@ -13,13 +13,13 @@ class HumanPlayer extends Player {
 
   // Move the paddle up `_PADDLE_SPEED` pixels.
   void moveUp() {
-    _top -= _PADDLE_SPEED;
-    _top = max(_top, 0);
+    top -= _PADDLE_SPEED;
+    top = max(top, 0);
   }
 
   // Move the paddle down `_PADDLE_SPEED` pixels.
   void moveDown() {
-    _top += _PADDLE_SPEED;
-    _top = min(_top, _canvasHeight - Player.PADDLE_HEIGHT);
+    top += _PADDLE_SPEED;
+    top = min(top, canvasHeight - Player.PADDLE_HEIGHT);
   }
 }
