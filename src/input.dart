@@ -5,6 +5,7 @@
 //
 
 import 'dart:collection';
+import 'dart:html';
 
 // The `Keyboard` class used here is taken from the following page:
 // https://dart.academy/web-games-with-dart-and-the-html5-canvas/
