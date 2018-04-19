@@ -9,10 +9,10 @@ import 'dart:html';
 import 'input.dart';
 import 'score.dart';
 import 'settings.dart';
-import 'screen.dart';
-import 'settingsscreen.dart';
-import 'gamescreen.dart';
-import 'endscreen.dart';
+import 'display.dart';
+import 'settingsdisplay.dart';
+import 'gamedisplay.dart';
+import 'enddisplay.dart';
 
 class Main {
   // Minimum time in milliseconds between game and screen updates.
@@ -27,12 +27,12 @@ class Main {
   Mouse _mouse;
 
   // Objects containing logic for different display modes.
-  SettingsScreen _settingsScreen;
-  GameScreen _gameScreen;
-  EndScreen _endScreen;
+  SettingsDisplay _settingsDisplay;
+  GameDisplay _gameDisplay;
+  EndDisplay _endDisplay;
 
-  // Reference to whichever `Screen` is currently being displayed.
-  Screen _currentScreen;
+  // Reference to whichever `Display` is currently being displayed.
+  Display _currentDisplay;
 
   // Score of the most recently finished game.
   Score _latestScore;
@@ -50,11 +50,11 @@ class Main {
     _keyboard = new Keyboard();
     _mouse = new Mouse();
 
-    _settingsScreen = new SettingsScreen(_canvas, _mouse);
-    _gameScreen = new GameScreen(_canvas, _keyboard);
-    _endScreen = new EndScreen(_canvas, _mouse);
+    _settingsDisplay = new SettingsDisplay(_canvas, _mouse);
+    _gameDisplay = new GameDisplay(_canvas, _keyboard);
+    _endDisplay = new EndDisplay(_canvas, _mouse);
 
-    _currentScreen = _settingsScreen;
+    _currentDisplay = _settingsDisplay;
   }
 
   // Clear the canvas.
@@ -64,27 +64,27 @@ class Main {
       ..fillRect(0, 0, _canvas.width, _canvas.height);
   }
 
-  // Check if `_currentScreen` is done executing and transition if so.
-  void _checkAndTransitionScreen() {
-    if (!_currentScreen.isDone()) return;
+  // Check if `_currentDisplay` is done executing and transition if so.
+  void _checkAndTransitionDisplay() {
+    if (!_currentDisplay.isDone()) return;
 
-    Screen nextScreen;
-    if (identical(_currentScreen, _settingsScreen)) {
-      nextScreen = _gameScreen;
-      _currentSettings = _settingsScreen.getSettings();
-      _gameScreen.setSettings(_currentSettings);
-    } else if (identical(_currentScreen, _gameScreen)) {
-      nextScreen = _endScreen;
-      _latestScore = _gameScreen.getScore();
-      _endScreen.setScore(_latestScore, _currentSettings.isTwoPlayer);
+    Display nextDisplay;
+    if (identical(_currentDisplay, _settingsDisplay)) {
+      nextDisplay = _gameDisplay;
+      _currentSettings = _settingsDisplay.getSettings();
+      _gameDisplay.setSettings(_currentSettings);
+    } else if (identical(_currentDisplay, _gameDisplay)) {
+      nextDisplay = _endDisplay;
+      _latestScore = _gameDisplay.getScore();
+      _endDisplay.setScore(_latestScore, _currentSettings.isTwoPlayer);
     } else {
-      // Must have: identical(_currentScreen, _endScreen)
-      nextScreen =
-          _endScreen.mustChangeSettings() ? _settingsScreen : _gameScreen;
+      // Must have: identical(_currentDisplay, _endDisplay)
+      nextDisplay =
+          _endDisplay.mustChangeSettings() ? _settingsDisplay : _gameDisplay;
     }
 
-    _currentScreen.reset();
-    _currentScreen = nextScreen;
+    _currentDisplay.reset();
+    _currentDisplay = nextDisplay;
   }
 
   // Advance all game mechanics and display the game.
@@ -94,8 +94,8 @@ class Main {
     if (delta > _GAME_UPDATE_INTERVAL) {
       _lastUpdateTime = currentTime;
       _clear();
-      _currentScreen.updateAndDraw();
-      _checkAndTransitionScreen();
+      _currentDisplay.updateAndDraw();
+      _checkAndTransitionDisplay();
     }
 
     // Continue the game loop.

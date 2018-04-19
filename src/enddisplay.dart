@@ -5,10 +5,10 @@
 //
 
 import 'input.dart';
-import 'screen.dart';
+import 'display.dart';
 
-class EndScreen extends Screen {
-  // If `true`, it's time to transition to the next screen.
+class EndDisplay extends Display {
+  // If `true`, it's time to transition to the next display.
   bool _isDone = false;
   // For getting clicks.
   final Mouse _mouse;
@@ -20,7 +20,7 @@ class EndScreen extends Screen {
   bool _mustChangeSettings;
 
   // Constructor.
-  EndScreen(CanvasElement canvas, Mouse mouse)
+  EndDisplay(CanvasElement canvas, Mouse mouse)
       : super(canvas),
         _mouse = mouse;
 
@@ -32,7 +32,7 @@ class EndScreen extends Screen {
 
   // Display the updated state on the canvas.
   void _display() {
-    _clearScreen();
+    _clearDisplay();
     // TODO: Implement actual functionality.
   }
 
@@ -43,11 +43,11 @@ class EndScreen extends Screen {
     _draw();
   }
 
-  // Return `true` if it's time to transition to the next screen; else `false`.
+  // Return `true` if it's time to transition to the next display; else `false`.
   @override
   bool isDone() => _isDone;
 
-  // Return the `Screen` to its original state.
+  // Return the `Display` to its original state.
   @override
   void reset() {
     _isDone = false;

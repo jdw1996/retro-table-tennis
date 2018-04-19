@@ -9,14 +9,14 @@ import 'dart:math';
 
 import 'input.dart';
 import 'score.dart';
-import 'screen.dart';
+import 'display.dart';
 import 'settings.dart';
 import 'player.dart';
 import 'aiplayer.dart';
 import 'humanplayer.dart';
 
-class GameScreen extends Screen {
-  // If `true`, it's time to transition to the next screen.
+class GameDisplay extends Display {
+  // If `true`, it's time to transition to the next display.
   bool _isDone = false;
   // For getting keyboard input.
   final Keyboard _keyboard;
@@ -35,7 +35,7 @@ class GameScreen extends Screen {
   int _playToScore = 7;
 
   // Constructor.
-  GameScreen(CanvasElement canvas, Keyboard keyboard)
+  GameDisplay(CanvasElement canvas, Keyboard keyboard)
       : super(canvas),
         _keyboard = keyboard {
     _currentScore = new Score();
@@ -49,7 +49,7 @@ class GameScreen extends Screen {
     _player2 = _player2AI;
   }
 
-  // Update the score displayed on the screen.
+  // Update the score displayed on the display.
   void _updateDisplayedScore() {
     scoreElement.text = "${_currentScore.score1}-${_currentScore.score2}";
   }
@@ -129,11 +129,12 @@ class GameScreen extends Screen {
     _draw();
   }
 
-  // Return `true` if it's time to transition to the next screen; else `false`.
+  // Return `true` if it's time to transition to the next display; else
+  // `false`.
   @override
   bool isDone() => _isDone;
 
-  // Return the `Screen` to its original state.
+  // Return the `Display` to its original state.
   @override
   void reset() {
     _isDone = false;
