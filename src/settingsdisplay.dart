@@ -39,7 +39,7 @@ class SettingsDisplay extends Display {
   @override
   void updateAndDraw() {
     _update();
-    _draw();
+    _display();
   }
 
   // Return `true` if it's time to transition to the next display; else
