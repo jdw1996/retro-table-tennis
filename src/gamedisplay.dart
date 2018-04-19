@@ -76,16 +76,16 @@ class GameDisplay extends Display {
     // Move the ball.
     _ball.move();
     // Move Player 1.
-    if (keyboard.isPressed(KeyCode.W)) {
+    if (_keyboard.isPressed(KeyCode.W)) {
       _player1.moveUp();
-    } else if (keyboard.isPressed(KeyCode.S)) {
+    } else if (_keyboard.isPressed(KeyCode.S)) {
       _player1.moveDown();
     }
     // Move Player 2.
     if (identical(_player2, _player2Human)) {
-      if (keyboard.isPressed(KeyCode.UP)) {
+      if (_keyboard.isPressed(KeyCode.UP)) {
         _player2Human.moveUp();
-      } else if (keyboard.isPressed(KeyCode.DOWN)) {
+      } else if (_keyboard.isPressed(KeyCode.DOWN)) {
         _player2Human.moveDown();
       }
     } else {
