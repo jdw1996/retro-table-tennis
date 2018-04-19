@@ -7,6 +7,7 @@
 import 'dart:html';
 import 'dart:math';
 
+import 'ball.dart';
 import 'input.dart';
 import 'score.dart';
 import 'display.dart';
