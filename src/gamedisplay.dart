@@ -22,7 +22,7 @@ class GameDisplay extends Display {
   // For getting keyboard input.
   final Keyboard _keyboard;
   // Current score of the game.
-  final Score _currentScore;
+  Score _currentScore;
   // HTML element to hold current score of the game.
   Element scoreElement;
   // Players of the game.
@@ -31,7 +31,7 @@ class GameDisplay extends Display {
   HumanPlayer _player2Human;
   Player _player2;
   // Ball for the game.
-  final Ball _ball;
+  Ball _ball;
   // Maximum score to play to.
   int _playToScore = 7;
 
@@ -39,13 +39,13 @@ class GameDisplay extends Display {
   GameDisplay(CanvasElement canvas, Keyboard keyboard)
       : super(canvas),
         _keyboard = keyboard {
-    _currentScore = new Score();
-    _ball = new Ball();
+    _currentScore = new Score(0, 0);
+    _ball = new Ball(canvas.height);
     // Player 1 is always human.
-    _player1 = new HumanPlayer(canvas.height);
+    _player1 = new HumanPlayer(canvas.height, _ball);
     // Player 2 may be either human or AI.
     _player2AI = new AIPlayer(canvas.height, _ball);
-    _player2Human = new HumanPlayer(canvas.height);
+    _player2Human = new HumanPlayer(canvas.height, _ball);
     // Let Player 2 be AI by default.
     _player2 = _player2AI;
   }
