@@ -36,7 +36,7 @@ abstract class Player {
   // Return a list containing the x- and y-coordinates of the top-left corner.
   List<int> getTopLeftCoordinates() {
     int x =
-        _isPlayer1 ? (_PLAYER1_RIGHT_EDGE - PADDLE_WIDTH) : _PLAYER2_LEFT_EDGE;
+        isPlayer1 ? (_PLAYER1_RIGHT_EDGE - PADDLE_WIDTH) : _PLAYER2_LEFT_EDGE;
     return [x, top];
   }
 
@@ -56,7 +56,7 @@ abstract class Player {
     if (ballX + Ball.RADIUS < _PLAYER2_LEFT_EDGE ||
         ballX - Ball.RADIUS > _PLAYER1_RIGHT_EDGE) return;
     // Consider the cases where the ball has a chance of bouncing.
-    if (_isPlayer1) {
+    if (isPlayer1) {
       if (ballY < paddleOneThirdDown && ballY > paddleTwoThirdsDown) {
         // Ball is in middle of paddle; don't change angle.
         ball.bounceOffPaddle(_PLAYER1_RIGHT_EDGE, 0);
