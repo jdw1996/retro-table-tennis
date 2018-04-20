@@ -17,7 +17,7 @@ class AIPlayer extends Player {
   @override
   void move() {
     // TODO: Implement actual functionality.
-    top += _currentDirection * _PADDLE_SPEED;
+    top += _currentDirection * Player.PADDLE_SPEED;
     if (top < 0) {
       top = 0;
       _currentDirection *= -1;

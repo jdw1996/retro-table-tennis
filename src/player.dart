@@ -17,7 +17,7 @@ abstract class Player {
   // X-coordinate for the left edge of Player 2's paddle.
   static const int _PLAYER2_LEFT_EDGE = 950;
   // Number of pixels the paddle can move vertically per frame.
-  static const int _PADDLE_SPEED = 10;
+  static const int PADDLE_SPEED = 10;
 
   // If `true`, this is Player 1, on the left; else Player 2, on the right.
   final bool isPlayer1;
