@@ -75,16 +75,16 @@ class Ball {
           }
         } else {
           // The ball is moving northeast.
-          _currentAngle == Angle.STEEP;
+          _currentAngle = Angle.STEEP;
         }
       } else {
         if (_horizontalFactor == -1) {
           // The ball is moving southwest.
-          _currentAngle == Angle.STEEP;
+          _currentAngle = Angle.STEEP;
         } else {
           // The ball is moving southeast.
           if (_currentAngle == Angle.STEEP) {
-            _currentAngle == Angle.MIDDLE;
+            _currentAngle = Angle.MIDDLE;
           } else {
             _currentAngle = Angle.STRAIGHT;
             _verticalFactor = 0;
@@ -103,7 +103,7 @@ class Ball {
         } else {
           // The ball is moving northeast.
           if (_currentAngle == Angle.STEEP) {
-            _currentAngle == Angle.MIDDLE;
+            _currentAngle = Angle.MIDDLE;
           } else {
             _currentAngle = Angle.STRAIGHT;
             _verticalFactor = 0;
@@ -133,7 +133,7 @@ class Ball {
 
   // Move the ball.
   void move() {
-    if (_currentAngle = Angle.STRAIGHT) {
+    if (_currentAngle == Angle.STRAIGHT) {
       _x += _speed * _horizontalFactor;
       return;
     }
