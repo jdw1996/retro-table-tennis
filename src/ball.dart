@@ -139,8 +139,8 @@ class Ball {
     }
 
     num angle = _currentAngle == Angle.STEEP ? PI / 4 : PI / 8;
-    _x += (cos(angle) * _speed).round();
-    _y += (sin(angle) * _speed).round();
+    _x += (cos(angle) * _speed).round() * _horizontalFactor;
+    _y += (sin(angle) * _speed).round() * _verticalFactor;
     if (_y + RADIUS > _canvasHeight) {
       // Reflect the ball back over the bottom of the canvas.
       _y = (2 * _canvasHeight) - _y - (2 * RADIUS);
