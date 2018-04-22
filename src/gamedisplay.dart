@@ -95,8 +95,10 @@ class GameDisplay extends Display {
     int ballX = _ball.getCentreCoordinates()[0];
     if (ballX + Ball.RADIUS < 0) {
       _player2Score();
+      _ball.reset();
     } else if (ballX - Ball.RADIUS > canvas.width) {
       _player1Score();
+      _ball.reset();
     }
   }
 
