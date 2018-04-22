@@ -85,7 +85,7 @@ class Main {
           _endDisplay.mustChangeSettings() ? _settingsDisplay : _gameDisplay;
     }
 
-    _currentDisplay.reset();
+    nextDisplay.reset();
     _currentDisplay = nextDisplay;
   }
 

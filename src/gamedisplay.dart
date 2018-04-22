@@ -145,6 +145,7 @@ class GameDisplay extends Display {
   void reset() {
     _isDone = false;
     _currentScore.reset();
+    _updateDisplayedScore();
   }
 
   // Use `newSettings` as the settings for the game.
