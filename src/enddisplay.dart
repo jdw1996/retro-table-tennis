@@ -20,7 +20,7 @@ class EndDisplay extends Display {
   // If `true`, there were two human players in the game.
   bool _isTwoPlayer;
   // If `true`, settings must be changed before replaying.
-  bool _mustChangeSettings;
+  bool _mustChangeSettings = false;
 
   // Constructor.
   EndDisplay(CanvasElement canvas, Mouse mouse)
