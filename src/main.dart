@@ -46,7 +46,8 @@ class Main {
 
   // Constructor.
   Main() {
-    _canvas = querySelector("#mycanvas")..focus();
+    _canvas = querySelector("#mycanvas");
+    _canvasContext = _canvas.getContext("2d");
 
     _keyboard = new Keyboard();
     _mouse = new Mouse();
