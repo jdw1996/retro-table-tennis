@@ -29,9 +29,10 @@ abstract class Player {
   final int canvasHeight;
 
   // Constructor.
-  Player(int canvasHeight, Ball ball)
+  Player(int canvasHeight, Ball ball, bool isPlayer1)
       : canvasHeight = canvasHeight,
-        ball = ball;
+        ball = ball,
+        isPlayer1 = isPlayer1;
 
   // Return a list containing the x- and y-coordinates of the top-left corner.
   List<int> getTopLeftCoordinates() {

@@ -9,7 +9,9 @@ import 'player.dart';
 
 class AIPlayer extends Player {
   // Constructor.
-  AIPlayer(int canvasHeight, Ball ball) : super(canvasHeight, ball);
+  AIPlayer(int canvasHeight, Ball ball, bool isPlayer1)
+      : super(canvasHeight, ball, isPlayer1);
+
   // TODO: Remove this.
   int _currentDirection = 1;
 

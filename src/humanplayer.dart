@@ -11,7 +11,8 @@ import 'player.dart';
 
 class HumanPlayer extends Player {
   // Constructor.
-  HumanPlayer(int canvasHeight, Ball ball) : super(canvasHeight, ball);
+  HumanPlayer(int canvasHeight, Ball ball, bool isPlayer1)
+      : super(canvasHeight, ball, isPlayer1);
 
   // Move the paddle up `PADDLE_SPEED` pixels.
   void moveUp() {

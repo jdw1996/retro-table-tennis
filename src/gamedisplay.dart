@@ -42,10 +42,10 @@ class GameDisplay extends Display {
     _currentScore = new Score(0, 0);
     _ball = new Ball(canvas.height);
     // Player 1 is always human.
-    _player1 = new HumanPlayer(canvas.height, _ball);
+    _player1 = new HumanPlayer(canvas.height, _ball, true);
     // Player 2 may be either human or AI.
-    _player2AI = new AIPlayer(canvas.height, _ball);
-    _player2Human = new HumanPlayer(canvas.height, _ball);
+    _player2AI = new AIPlayer(canvas.height, _ball, false);
+    _player2Human = new HumanPlayer(canvas.height, _ball, false);
     // Let Player 2 be AI by default.
     _player2 = _player2AI;
   }
