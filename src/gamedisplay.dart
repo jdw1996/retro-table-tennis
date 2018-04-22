@@ -24,7 +24,7 @@ class GameDisplay extends Display {
   // Current score of the game.
   Score _currentScore;
   // HTML element to hold current score of the game.
-  Element scoreElement;
+  Element _scoreElement;
   // Players of the game.
   HumanPlayer _player1;
   AIPlayer _player2AI;
@@ -48,11 +48,13 @@ class GameDisplay extends Display {
     _player2Human = new HumanPlayer(canvas.height, _ball, false);
     // Let Player 2 be AI by default.
     _player2 = _player2AI;
+    // Initialize the element where the score is displayed.
+    _scoreElement = querySelector("#score");
   }
 
   // Update the score displayed on the display.
   void _updateDisplayedScore() {
-    scoreElement.text = "${_currentScore.score1}-${_currentScore.score2}";
+    _scoreElement.text = "${_currentScore.score1}-${_currentScore.score2}";
   }
 
   // Add a point to Player 1's total.
