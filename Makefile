@@ -14,7 +14,7 @@ all: ${OUTPUT_MAIN_FILE}
 
 ${OUTPUT_MAIN_FILE}: ${SOURCE_MAIN_FILE} ${SOURCE_FILES}
 	mkdir -p ${OUTPUT_DIR}
-	dart2js -m $< -o $@
+	dart2js $< -o $@
 
 clean:
 	rm -f ${OUTPUT_FILES}
