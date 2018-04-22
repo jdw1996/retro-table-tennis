@@ -21,7 +21,9 @@ class SettingsDisplay extends Display {
   // Constructor.
   SettingsDisplay(CanvasElement canvas, Mouse mouse)
       : super(canvas),
-        _mouse = mouse;
+        _mouse = mouse {
+    _currentSettings = new Settings(false, 7);
+  }
 
   // Perform logical updates.
   void _update() {
