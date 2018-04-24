@@ -93,6 +93,9 @@ class GameDisplay extends Display {
     } else {
       _player2AI.move();
     }
+    // Check if the ball should bounce off a paddle.
+    _player1.checkCollisionsWithBall();
+    _player2.checkCollisionsWithBall();
     // Check if a point has been scored.
     int ballX = _ball.getCentreCoordinates()[0];
     if (ballX + Ball.RADIUS < 0) {

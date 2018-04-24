@@ -4,6 +4,8 @@
 // April 2018
 //
 
+import 'dart:math';
+
 import 'ball.dart';
 
 abstract class Player {
@@ -54,7 +56,7 @@ abstract class Player {
     // If the ball is past the paddles, it cannot be stopped.
     if (ballX > _PLAYER2_LEFT_EDGE || ballX < _PLAYER1_RIGHT_EDGE) return;
     // If the ball is in the middle of the board, it cannot bounce.
-    if (ballX + Ball.RADIUS < _PLAYER2_LEFT_EDGE ||
+    if (ballX + Ball.RADIUS < _PLAYER2_LEFT_EDGE &&
         ballX - Ball.RADIUS > _PLAYER1_RIGHT_EDGE) return;
     // Consider the cases where the ball has a chance of bouncing.
     if (isPlayer1) {
