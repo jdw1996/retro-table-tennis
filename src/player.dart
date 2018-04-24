@@ -60,7 +60,7 @@ abstract class Player {
         ballX - Ball.RADIUS > _PLAYER1_RIGHT_EDGE) return;
     // Consider the cases where the ball has a chance of bouncing.
     if (isPlayer1) {
-      if (ballY < paddleOneThirdDown && ballY > paddleTwoThirdsDown) {
+      if (ballY > paddleOneThirdDown && ballY < paddleTwoThirdsDown) {
         // Ball is in middle of paddle; don't change angle.
         ball.bounceOffPaddle(_PLAYER1_RIGHT_EDGE, 0);
       } else if (ballY <= paddleOneThirdDown) {
@@ -82,7 +82,7 @@ abstract class Player {
         if (shouldBounce) ball.bounceOffPaddle(_PLAYER1_RIGHT_EDGE, 1);
       }
     } else {
-      if (ballY < paddleOneThirdDown && ballY > paddleTwoThirdsDown) {
+      if (ballY > paddleOneThirdDown && ballY < paddleTwoThirdsDown) {
         // Ball is in middle of paddle; don't change angle.
         ball.bounceOffPaddle(_PLAYER2_LEFT_EDGE, 0);
       } else if (ballY <= paddleOneThirdDown) {
