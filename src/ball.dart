@@ -11,13 +11,13 @@ enum Angle { STEEP, MIDDLE, STRAIGHT }
 class Ball {
   // TODO: Adjust these numbers as necessary.
   // Radius of the ball.
-  static const int RADIUS = 50;
+  static const int RADIUS = 30;
   // Initial x-coordinate for the centre of the ball.
   static const int _INITIAL_X = 500;
   // Initial y-coordinate for the centre of the ball.
   static const int _INITIAL_Y = 250;
   // Initial number of pixel-widths to move diagonally each iteration.
-  static const int _INITIAL_SPEED = 10;
+  static const int _INITIAL_SPEED = 15;
 
   // The maximum possible y-coordinate.
   final int _canvasHeight;
@@ -127,6 +127,11 @@ class Ball {
     }
   }
 
+  // Increment the speed of the ball, limiting speed to `RADIUS`.
+  void _incrementSpeed() {
+    if (_speed < RADIUS) _speed++;
+  }
+
   // Return a list containing the x- and y-coordinates of the centre.
   List<int> getCentreCoordinates() {
     return [_x, _y];
@@ -159,6 +164,7 @@ class Ball {
     _x = (2 * paddleX) - _x - (2 * RADIUS);
     _horizontalFactor = -1;
     _rotateAngle(rotation);
+    _incrementSpeed();
   }
 
   // Set the ball to move right and change angle if necessary.  If `rotation`
@@ -168,6 +174,7 @@ class Ball {
     _x = (2 * paddleX) - _x + (2 * RADIUS);
     _horizontalFactor = 1;
     _rotateAngle(rotation);
+    _incrementSpeed();
   }
 
   // Return the ball to the centre of the screen.
