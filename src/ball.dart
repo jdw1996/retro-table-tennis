@@ -40,6 +40,7 @@ class Ball {
   Ball(int canvasHeight) : _canvasHeight = canvasHeight {
     random = new Random();
     _randomizeAngle();
+    _horizontalFactor = -1;
   }
 
   // Change movement to a random angle.
@@ -152,16 +153,20 @@ class Ball {
     }
   }
 
-  // Reverse the ball's horizontal direction and change angle if necessary.
-  // If `rotation` is -1, rotate counter-clockwise; if 0, no rotation; if 1,
-  // rotate clockwise.
-  void bounceOffPaddle(int paddleX, int rotation) {
-    if (_horizontalFactor == 1) {
-      _x = (2 * paddleX) - _x - (2 * RADIUS);
-    } else {
-      _x = (2 * paddleX) - _x + (2 * RADIUS);
-    }
-    _horizontalFactor *= -1;
+  // Set the ball to move left and change angle if necessary.  If `rotation` is
+  // -1, rotate counter-clockwise; if 0, no rotation; if 1, rotate clockwise.
+  void bounceLeft(int paddleX, int rotation) {
+    _x = (2 * paddleX) - _x - (2 * RADIUS);
+    _horizontalFactor = -1;
+    _rotateAngle(rotation);
+  }
+
+  // Set the ball to move right and change angle if necessary.  If `rotation`
+  // is -1, rotate counter-clockwise; if 0, no rotation; if 1, rotate
+  // clockwise.
+  void bounceRight(int paddleX, int rotation) {
+    _x = (2 * paddleX) - _x + (2 * RADIUS);
+    _horizontalFactor = 1;
     _rotateAngle(rotation);
   }
 

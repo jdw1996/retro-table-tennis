@@ -59,10 +59,10 @@ abstract class Player {
     if (ballX + Ball.RADIUS < _PLAYER2_LEFT_EDGE &&
         ballX - Ball.RADIUS > _PLAYER1_RIGHT_EDGE) return;
     // Consider the cases where the ball has a chance of bouncing.
-    if (isPlayer1) {
+    if (isPlayer1 && (ballX - Ball.RADIUS <= _PLAYER1_RIGHT_EDGE)) {
       if (ballY > paddleOneThirdDown && ballY < paddleTwoThirdsDown) {
         // Ball is in middle of paddle; don't change angle.
-        ball.bounceOffPaddle(_PLAYER1_RIGHT_EDGE, 0);
+        ball.bounceRight(_PLAYER1_RIGHT_EDGE, 0);
       } else if (ballY <= paddleOneThirdDown) {
         // Check if ball is contacting paddle.
         bool shouldBounce = ballY >= top ||
@@ -70,7 +70,7 @@ abstract class Player {
                 Ball.RADIUS;
         // Ball is bouncing off top of paddle; angle slightly
         // counter-clockwise.
-        if (shouldBounce) ball.bounceOffPaddle(_PLAYER1_RIGHT_EDGE, -1);
+        if (shouldBounce) ball.bounceRight(_PLAYER1_RIGHT_EDGE, -1);
       } else {
         // ballY >= paddleTwoThirdsDown
         // Check if ball is contacting paddle.
@@ -79,19 +79,19 @@ abstract class Player {
                     pow(ballY - paddleBottom, 2)) <
                 Ball.RADIUS;
         // Ball is bouncing off bottom of paddle; angle slightly clockwise.
-        if (shouldBounce) ball.bounceOffPaddle(_PLAYER1_RIGHT_EDGE, 1);
+        if (shouldBounce) ball.bounceRight(_PLAYER1_RIGHT_EDGE, 1);
       }
-    } else {
+    } else if (!isPlayer1 && (ballX + Ball.RADIUS >= _PLAYER2_LEFT_EDGE)) {
       if (ballY > paddleOneThirdDown && ballY < paddleTwoThirdsDown) {
         // Ball is in middle of paddle; don't change angle.
-        ball.bounceOffPaddle(_PLAYER2_LEFT_EDGE, 0);
+        ball.bounceLeft(_PLAYER2_LEFT_EDGE, 0);
       } else if (ballY <= paddleOneThirdDown) {
         // Check if ball is contacting paddle.
         bool shouldBounce = ballY >= top ||
             sqrt(pow(ballX - _PLAYER2_LEFT_EDGE, 2) + pow(ballY - top, 2)) <
                 Ball.RADIUS;
         // Ball is bouncing off top of paddle; angle slightly clockwise.
-        if (shouldBounce) ball.bounceOffPaddle(_PLAYER2_LEFT_EDGE, 1);
+        if (shouldBounce) ball.bounceLeft(_PLAYER2_LEFT_EDGE, 1);
       } else {
         // ballY >= paddleTwoThirdsDown
         // Check if ball is contacting paddle.
@@ -101,7 +101,7 @@ abstract class Player {
                 Ball.RADIUS;
         // Ball is bouncing off bottom of paddle; angle slightly
         // counter-clockwise.
-        if (shouldBounce) ball.bounceOffPaddle(_PLAYER2_LEFT_EDGE, -1);
+        if (shouldBounce) ball.bounceLeft(_PLAYER2_LEFT_EDGE, -1);
       }
     }
   }
