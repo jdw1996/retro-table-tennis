@@ -43,6 +43,18 @@ abstract class Player {
     return [x, top];
   }
 
+  // Move the paddle up `PADDLE_SPEED` pixels.
+  void moveUp() {
+    top -= Player.PADDLE_SPEED;
+    top = max(top, 0);
+  }
+
+  // Move the paddle down `PADDLE_SPEED` pixels.
+  void moveDown() {
+    top += Player.PADDLE_SPEED;
+    top = min(top, canvasHeight - Player.PADDLE_HEIGHT);
+  }
+
   // Check collisions with `ball`.
   void checkCollisionsWithBall() {
     // Compute necessary values.

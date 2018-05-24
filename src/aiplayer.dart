@@ -12,20 +12,15 @@ class AIPlayer extends Player {
   AIPlayer(int canvasHeight, Ball ball, bool isPlayer1)
       : super(canvasHeight, ball, isPlayer1);
 
-  // TODO: Remove this.
-  int _currentDirection = 1;
-
   // Determine the best direction to move in and move.
   @override
   void move() {
-    // TODO: Implement actual functionality.
-    top += _currentDirection * Player.PADDLE_SPEED;
-    if (top < 0) {
-      top = 0;
-      _currentDirection *= -1;
-    } else if (top + Player.PADDLE_HEIGHT > canvasHeight) {
-      top = canvasHeight - Player.PADDLE_HEIGHT;
-      _currentDirection *= -1;
+    int ballY = ball.getCentreCoordinates()[1];
+    // TODO: Adjust "sweet spot" as necessary.
+    if (ballY <= top + Player.PADDLE_HEIGHT / 3) {
+      moveUp();
+    } else if (ballY >= top + (2 * Player.PADDLE_HEIGHT) / 3) {
+      moveDown();
     }
   }
 }
