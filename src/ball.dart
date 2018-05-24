@@ -9,7 +9,6 @@ import 'dart:math';
 enum Angle { STEEP, MIDDLE, STRAIGHT }
 
 class Ball {
-  // TODO: Adjust these numbers as necessary.
   // Radius of the ball.
   static const int RADIUS = 30;
   // Initial x-coordinate for the centre of the ball.
