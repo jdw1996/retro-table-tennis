@@ -7,6 +7,15 @@
 import 'dart:html';
 
 abstract class Display {
+  // Player 1's colour.
+  static const String PLAYER1_COLOUR = "red";
+  // Player 2's colour.
+  static const String PLAYER2_COLOUR = "blue";
+  // Colour of the ball.
+  static const String BALL_COLOUR = "white";
+  // Colour of the background.
+  static const String BACKGROUND_COLOUR = "black";
+
   // Canvas to draw the game on.
   final CanvasElement canvas;
   // Drawing context for the canvas.
@@ -24,7 +33,7 @@ abstract class Display {
   // Clear the canvas.
   void clearDisplay() {
     canvasContext
-      ..fillStyle = "black"
+      ..fillStyle = BACKGROUND_COLOUR
       ..fillRect(0, 0, canvas.width, canvas.height);
   }
 }
