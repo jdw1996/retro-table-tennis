@@ -9,7 +9,6 @@ import 'dart:math';
 import 'ball.dart';
 
 abstract class Player {
-  // TODO: Adjust these numbers as necessary.
   // Height of the paddles.
   static const int PADDLE_HEIGHT = 150;
   // Width of the paddles.
