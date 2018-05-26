@@ -15,6 +15,12 @@ abstract class Display {
   static const String BALL_COLOUR = "white";
   // Colour of the background.
   static const String BACKGROUND_COLOUR = "black";
+  // Usual colour of a button.
+  static const String BUTTON_COLOUR = "#00cc03";
+  // Default font to display text in.
+  static const String FONT = "36pt IBM Plex Sans";
+  // Monospace font to display text in.
+  static const String MONO_FONT = "36pt IBM Plex Mono";
 
   // Canvas to draw the game on.
   final CanvasElement canvas;
