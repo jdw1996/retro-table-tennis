@@ -16,16 +16,13 @@ class SettingsDisplay extends Display {
   static const String NUM_PLAYERS_TEXT = "Number of players:";
   // Text for setting maximum score.
   static const String SCORE_TO_WIN_TEXT = "Score needed to win:";
-  // Text for starting the game.
+  // Text for the start button.
   static const String START_GAME_TEXT = "START";
 
-  // Width in pixels of the buttons.
+  // Dimensions of buttons.
   static const int BUTTON_WIDTH = 70;
-  // Height in pixels of the buttons.
   static const int BUTTON_HEIGHT = 70;
-  // Width in pixels of the start button.
   static const int START_BUTTON_WIDTH = 200;
-  // Height in pixels of the start button.
   static const int START_BUTTON_HEIGHT = 100;
 
   // Coordinates of buttons.
